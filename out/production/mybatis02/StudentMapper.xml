@@ -32,7 +32,7 @@
     <select id="selectCondition" resultType="student" parameterType="student">
         <include refid="select"></include>
         <where>
-            <if test="id != null">
+            <if test="id != null">/*多条件查询*/
                 id = #{id}
             </if>
             <if test="name != null">
@@ -46,7 +46,7 @@
 
     <select id="selectByIds" resultType="student" parameterType="list" >
         SELECT * FROM student1
-        <where>
+        <where>/*foreach：适合多个参数遍历*/
             <foreach collection="list" open="id IN (" close=")" item="id" separator=",">
                 #{id}
             </foreach>

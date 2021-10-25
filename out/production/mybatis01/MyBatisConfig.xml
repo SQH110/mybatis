@@ -6,7 +6,7 @@
     <!--引入配置文件-->
     <properties resource="jdbc.properties"/>
     
-    <!--配置LOG4J-->
+    <!--配置LOG4J：日志文件-->
     <settings>
         <setting name="logImpl" value="log4j"/>
     </settings>
@@ -18,9 +18,9 @@
     </typeAliases>
 
     <!--加载数据库-->
-    <environments default="mysql"><!--要用那个配置和下面的id对应-->
+    <environments default="mysql"><!--要用那个配置和下面的id对应（可以配置多种数据库）-->
         <environment id="mysql">
-            <!--表示JDBC默认事务-->
+            <!--表示JDBC默认的事务-->
             <transactionManager type="JDBC"></transactionManager>
             <!--POOLED表示数据库连接池-->
             <dataSource type="POOLED">

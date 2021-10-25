@@ -5,7 +5,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!--mapper核心根标签-->
 <mapper namespace="StudentMapper"><!--名称空间-->
-    <select id="selectAll" resultType="student">/*查询全部,resultType表示封装路径*/
+    <select id="selectAll" resultType="student">/*查询全部,resultType表示返回值类型，封装到Student类中*/
         SELECT * FROM student1/*查询一条封装一个对象*/
     </select>
 
