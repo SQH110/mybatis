@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <!--注意这个顺序关系♥-->
+    <!--引入配置文件-->
+    <properties resource="jdbc.properties"/>
+    
+    <!--配置LOG4J-->
+    <settings>
+        <setting name="logImpl" value="log4j"/>
+    </settings>
+
+    <!--起别名-->
+    <typeAliases>
+        <typeAlias type="com.itheima.bean.Student" alias="student"/>
+<!--        <package name="com.com.itheima.bean"/>&lt;!&ndash;给指定包下所有类起别名，别名就是类名&ndash;&gt;-->
+    </typeAliases>
+
+    <!--集成分页助手插件-->
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageInterceptor"></plugin>
+    </plugins>
+
+    <environments default="mysql"><!--要用那个配置和下面的id对应-->
+        <environment id="mysql">
+            <!--表示JDBC默认事务-->
+            <transactionManager type="JDBC"></transactionManager>
+            <!--POOLED表示数据库连接池-->
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <!--加载映射配置文件-->
+    <mappers>
+        <mapper resource="StudentMapper.xml"/>
+    </mappers>
+</configuration>

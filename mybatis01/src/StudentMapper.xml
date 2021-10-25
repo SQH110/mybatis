@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?><!--这个是映射配置文件-->
+<!--MyBatis的DTD约束（对xml的语法进行验证）-->
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--mapper核心根标签-->
+<mapper namespace="StudentMapper"><!--名称空间-->
+    <select id="selectAll" resultType="student">/*查询全部,resultType表示返回值类型，封装到Student类中*/
+        SELECT * FROM student1/*查询一条封装一个对象*/
+    </select>
+
+    <!--对于有条件的查询-->
+    <select id="selectById" resultType="student" parameterType="java.lang.Integer" >/*id是int类型*/
+        SELECT * FROM student1 WHERE id = #{id}/*注意这个格式*/
+    </select>
+
+    <!--返回一个int类型的数据（影响行数），可以不写resultType-->
+    <insert id="insert" parameterType="student">
+        INSERT INTO student1 VALUES (#{id},#{name},#{age})/*新增功能*/
+    </insert>
+
+    <update id="update" parameterType="student">
+        UPDATE student1 SET name = #{name},age = #{age} WHERE id = #{id}/*修改功能*/
+    </update>
+
+    <delete id="delete" parameterType="student">
+        DELETE FROM student1 WHERE id = #{id}
+    </delete>
+</mapper>

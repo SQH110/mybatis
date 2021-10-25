@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--MyBatis的DTD约束-->
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.itheima.mapper.StudentMapper"><!--名称空间与mapper接口全类名相同-->
+    <!--sql片段抽取-->
+    <sql id="select">SELECT * FROM student1</sql>
+
+    <select id="selectAll" resultType="student">/*查询全部,resultType表示封装路径*/
+        <include refid="select"/>
+    </select>
+
+    <select id="selectById" resultType="student" parameterType="java.lang.Integer" >/*id是int类型*/
+        <include refid="select"></include> WHERE id = #{id}/*注意这个格式*/
+    </select>
+
+    <!--返回一个int类型的数据，可以不写resultType-->
+    <select id="insert" parameterType="student">
+        INSERT INTO student1 VALUES (#{id},#{name},#{age})
+    </select>
+
+    <update id="update" parameterType="student">
+        UPDATE student1 SET name = #{name},age = #{age} WHERE id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="student">
+        DELETE FROM student1 WHERE id = #{id}
+    </delete>
+
+    <select id="selectCondition" resultType="student" parameterType="student">
+        <include refid="select"></include>
+        <where>
+            <if test="id != null">/*多条件查询*/
+                id = #{id}
+            </if>
+            <if test="name != null">
+                AND name = #{name}
+            </if>
+            <if test="age != null">
+                AND age = #{age}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectByIds" resultType="student" parameterType="list" >
+        SELECT * FROM student1
+        <where>/*foreach：适合多个参数遍历*/
+            <foreach collection="list" open="id IN (" close=")" item="id" separator=",">
+                #{id}
+            </foreach>
+        </where>
+    </select>
+</mapper>
