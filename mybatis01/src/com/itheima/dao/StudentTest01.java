@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.Test;
 
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
@@ -168,10 +169,10 @@ public class StudentTest01 {
         //利用mybatis提供的工具类
         InputStream is = Resources.getResourceAsStream("MyBatisConfig.xml");
 
-        //2.获取SqlSession工厂对象
+        //2.获取SqlSession工厂对象(使用SqlSessionFactoryBuilder())
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(is);
 
-        //3.通过SqlSession工厂对象获取SqlSession对象
+        //3.通过sqlSessionFactory对象获取SqlSession（sql会话）对象
         SqlSession sqlSession = sqlSessionFactory.openSession();//这个才是真正帮助我们实现功能的对象
 
         //4.执行映射配置文件中的sql语句，并接收结果(返回一个list集合)（一个对象一个对象来）
