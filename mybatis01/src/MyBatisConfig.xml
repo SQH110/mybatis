@@ -14,7 +14,8 @@
     <!--起别名-->
     <typeAliases>
         <typeAlias type="com.itheima.bean.Student" alias="student"/>
-<!--        <package name="com.com.itheima.bean"/>&lt;!&ndash;给指定包下所有类起别名，别名就是类名&ndash;&gt;-->
+        <!--给指定包下所有类起别名，别名就是类名（通用模式），常见数据类型自带别名-->
+<!--        <package name="com.com.itheima.bean"/>-->
     </typeAliases>
 
     <!--加载数据库-->
@@ -34,6 +35,7 @@
 
     <!--加载映射配置文件-->
     <mappers>
+        <!-- mapper 引入指定的映射配置文件（可以引入多个）   resource属性指定映射配置文件的名称 -->
         <mapper resource="StudentMapper.xml"/>
     </mappers>
 </configuration>

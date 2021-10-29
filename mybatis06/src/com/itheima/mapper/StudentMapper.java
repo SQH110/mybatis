@@ -16,7 +16,7 @@ import java.util.List;
 public interface StudentMapper {
     //查询全部
     //@Select("SELECT * FROM student1")
-    @SelectProvider(type = ReturnSql.class , method = "getSelectAll")
+    @SelectProvider(type = ReturnSql.class , method = "getSelectAll")//@SelectProvider：生成查询用的SQL语句注解
     //type：生成SQL语句功能类对象，method属性：指定调用方法
     public abstract List<Student> selectAll();
 

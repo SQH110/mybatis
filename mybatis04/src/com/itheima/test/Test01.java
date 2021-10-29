@@ -21,7 +21,7 @@ public class Test01 {
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(is);
 
         //3.通过工厂对象获取SqlSession对象
-        SqlSession sqlSession = sqlSessionFactory.openSession(true);
+        SqlSession sqlSession = sqlSessionFactory.openSession(true);//自动提交事务
 
         //4.获取StudentMapper接口的实现类对象
         StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);//多态--底层利用反射

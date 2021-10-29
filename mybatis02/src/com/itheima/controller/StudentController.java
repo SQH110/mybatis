@@ -35,7 +35,7 @@ public class StudentController {
     //新增功能测试
     @Test
     public void insert() {
-        Student stu = new Student(4,"赵六",26);
+        Student stu = new Student(20,"赵六2",26);
         Integer result = service.insert(stu);
         System.out.println(result);
     }
@@ -43,7 +43,7 @@ public class StudentController {
     //修改功能测试
     @Test
     public void update() {
-        Student stu = new Student(4,"赵六",16);
+        Student stu = new Student(4,"赵六4",16);
         Integer result = service.update(stu);
         System.out.println(result);
     }
@@ -51,7 +51,7 @@ public class StudentController {
     //删除功能测试
     @Test
     public void delete() {
-        Integer result = service.delete(4);
+        Integer result = service.delete(20);
         System.out.println(result);
     }
 }

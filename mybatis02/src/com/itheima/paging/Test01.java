@@ -32,13 +32,13 @@ public class Test01 {
 
         //分页助手的功能
         //第一页：3条
-        PageHelper.startPage(1,3);
+//        PageHelper.startPage(1,3);
         //第二页：3条
 //        PageHelper.startPage(2,3);
         //第三页：3条
 //        PageHelper.startPage(3,3);
 
-        List<Student> list = mapper.selectAll();
+        List<Student> list = mapper.selectAll();//只去获得当前页的所有
 
         for (Student student : list) {
             System.out.println(student);

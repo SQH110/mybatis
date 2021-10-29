@@ -1,4 +1,7 @@
 package com.itheima.bean;
+
+import java.util.List;
+
 /*
 这里的多表操作，只是拿查询来操作
 中间表和一些外键的名称，我们都没有添加

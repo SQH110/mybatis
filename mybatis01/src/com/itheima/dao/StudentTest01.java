@@ -167,7 +167,9 @@ public class StudentTest01 {
     public void selectAll() throws Exception{
         //1.加载核心配置文件
         //利用mybatis提供的工具类
-        InputStream is = Resources.getResourceAsStream("MyBatisConfig.xml");
+//        InputStream is = Resources.getResourceAsStream("MyBatisConfig.xml");
+        //使用原始的方法来加载核心配置文件（效果和提供的工具类一致）
+        InputStream is = StudentTest01.class.getClassLoader().getResourceAsStream("MyBatisConfig.xml");
 
         //2.获取SqlSession工厂对象(使用SqlSessionFactoryBuilder())
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(is);

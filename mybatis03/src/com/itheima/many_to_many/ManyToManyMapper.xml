@@ -8,7 +8,10 @@
         <id column="sid" property="id"/>
         <result column="sname" property="name"/>
         <result column="sage" property="age"/>
-
+        <!--
+            这个courses就是在Student类中定义的
+            而这个course则是我们真正的Course类的别名
+        -->
         <collection property="courses" ofType="course">
             <id column="cid" property="id"/><!--主键-->
             <result column="cname" property="name"/>

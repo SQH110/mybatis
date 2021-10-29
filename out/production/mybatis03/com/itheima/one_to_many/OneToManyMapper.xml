@@ -9,9 +9,10 @@
         <result column="cname" property="name"/>
 
         <!--
+            一个班中有多个人，使用collection标签
             collection：配置被包含的集合对象映射关系
-            property：被包含对象的变量名
-            ofType：被包含对象的实际数据类型
+            property：被包含对象的变量名（这里的students是指一个集合容器）
+            ofType：被包含对象的实际数据类型（这里的student是指具体的对象）
         -->
         <collection property="students" ofType="student">
             <id column="sid" property="id"/>
@@ -19,6 +20,7 @@
             <result column="sage" property="age"/>
         </collection>
     </resultMap>
+    <!--隐式内连接查询-->
     <select id="selectAll" resultMap="oneToMany">/*这个简写在表的别名里*/
         SELECT c.id cid,c.name cname,s.id sid,s.name sname,s.age sage FROM classes c,student s WHERE c.id=s.cid
     </select>

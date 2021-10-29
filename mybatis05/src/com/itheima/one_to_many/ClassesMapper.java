@@ -10,8 +10,8 @@ import java.util.List;
 
 public interface ClassesMapper {
     //查询全部
-    @Select("SELECT * FROM classes")//从classes中进行查询的
-    @Results({
+    @Select("SELECT * FROM classes")//从classes中进行查询全部
+    @Results({//封装结果
             @Result(column = "id",property = "id"),
             @Result(column = "name",property = "name"),
             @Result(//默认包裹类为Students集合

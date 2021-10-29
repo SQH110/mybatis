@@ -54,7 +54,7 @@ public class Test01 {
         StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
 
         //5.调用实现类对象中的方法，接收结果
-        Student stu = new Student(2,"赵六",26);
+        Student stu = new Student(14,"赵六liu",26);
         Integer result = mapper.insert(stu);
 
         //6.处理结果

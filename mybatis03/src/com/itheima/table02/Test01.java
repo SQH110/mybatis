@@ -27,13 +27,13 @@ public class Test01 {
         OneToManyMapper mapper = sqlSession.getMapper(OneToManyMapper.class);
 
         //5.调用实现类的方法，接收结果
-        List<Classes> classes = mapper.selectAll();
+        List<Classes> classes = mapper.selectAll();//集合中保存多个班级的结果
 
         //6.处理结果
-        for (Classes cls : classes) {
+        for (Classes cls : classes) {//遍历班级
             System.out.println(cls.getId() + "," + cls.getName());
             List<Student> students = cls.getStudents();//这个field是一个集合
-            for (Student student : students) {
+            for (Student student : students) {//遍历某个班级的学生
                 System.out.println("\t" + student);
             }
         }

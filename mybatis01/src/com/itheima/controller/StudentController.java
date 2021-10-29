@@ -26,14 +26,14 @@ public class StudentController {
     //根据id查询功能测试
     @Test
     public void selectById() {
-        Student stu = service.selectById(3);
+        Student stu = service.selectById(6);
         System.out.println(stu);
     }
 
     //新增功能测试
     @Test
     public void insert() {
-        Student stu = new Student(4,"赵六",26);
+        Student stu = new Student(15,"赵六",26);
         Integer result = service.insert(stu);
         System.out.println(result);
     }

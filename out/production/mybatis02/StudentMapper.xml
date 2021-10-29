@@ -12,12 +12,12 @@
         <include refid="select"/>
     </select>
 
-    <select id="selectById" resultType="student" parameterType="java.lang.Integer" >/*id是int类型*/
+    <select id="selectById" resultType="student" parameterType="int" >/*id是int类型*/
         <include refid="select"></include> WHERE id = #{id}/*注意这个格式*/
     </select>
 
     <!--返回一个int类型的数据，可以不写resultType-->
-    <select id="insert" parameterType="student">
+    <select id="insert" parameterType="student" >
         INSERT INTO student1 VALUES (#{id},#{name},#{age})
     </select>
 

@@ -15,7 +15,7 @@
 
     <!--起别名-->
     <typeAliases>
-        <package name="com.itheima.bean"/>
+        <package name="com.itheima.bean"/><!--包下所有的都起了别名-->
     </typeAliases>
 
     <!--environments配置数据库环境，环境可以有多个。default属性指定使用的是哪个-->

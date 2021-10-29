@@ -18,7 +18,7 @@ import java.util.List;
  */
 public class StudentServiceImpl implements StudentService {
 
-    //之前这些方法的具体执行步骤写在Mapper类中，现在mapper中只有接口
+    //之前这些方法的具体执行步骤写在Mapper类中，现在mapper中只有接口，就写在service接口实现类中
     //查询全部
     @Override
     public List<Student> selectAll() {
